@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<fcntl.h>
+
+int CreateFile(char Name[])
+{
+    int fd=0;
+    fd=creat(Name,0777);
+    return fd;
+
+}
+
+int main()
+{
+    char Fname[20];
+    int fd = 0;
+
+    printf("Enter file name to create :");
+    scanf("%s",Fname);
+
+    fd=CreateFile(Fname);
+    if(fd==-1)
+        printf("Unable to create file\n");
+    else
+        printf("Suceessfully create file with FD %d\n",fd);
+
+    return 0;
+}
